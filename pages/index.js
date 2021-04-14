@@ -3,9 +3,9 @@ import Head from 'next/head'
 import { 
   Container, 
   FormControl, 
+  FormLabel,
   Heading,
   Input,
-  InputLeftElement, 
   Text 
 } from "@chakra-ui/react"
 
@@ -43,9 +43,9 @@ export default function Home() {
         <Heading margin="6">How much money do I need to make today to hit my yearly goal?</Heading>
         
         <FormControl marginBottom="6">
+          <FormLabel fontSize="2xl">Total earnings goal for the year</FormLabel>
           <Input 
             type="text" 
-            placeholder="What is your goal for the year?" 
             size="lg" 
             name="goal"
             onChange={ event => setGoalAmount(event.target.value)}
@@ -53,9 +53,9 @@ export default function Home() {
           />
         </FormControl>
         <FormControl marginBottom="6">
+        <FormLabel fontSize="2xl">Earnings so far this year</FormLabel>
           <Input
             type="text" 
-            placeholder="How much have you made so far?" 
             size="lg" 
             name="progress" 
             onChange={ event => setGoalProgress(event.target.value)}
@@ -63,7 +63,13 @@ export default function Home() {
           />
         </FormControl>
 
-        <Text marginTop="6" fontSize="6xl" color="green.400" align="center">{`$${dailyAmount}`}</Text>
+        <Text 
+          marginTop="6" 
+          fontSize="4xl"  
+          align="center"
+        >
+          You need to earn <Text fontSize="6xl" color="green.400">{`$${dailyAmount}`}</Text> per day
+        </Text>
       </Container>
     </>
   )
